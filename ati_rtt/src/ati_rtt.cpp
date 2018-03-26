@@ -137,7 +137,7 @@ bool ati_rtt::configureHook(){
     { std::cout << "The subdevice uses bitfield samples for asynchronous command data, one bit per channel (otherwise it uses one sampl_t or lsampl_t per channel). Commonly used for digital subdevices." << std::endl; }
   */
 
-  
+  /*
   for( int i=0; i<comedi_get_n_channels( Device, Subdevice ); i++ ){
     if( comedi_apply_calibration( Device, Subdevice, i, 1, AREF_DIFF, NULL ) != 0 ){
       RTT::log(RTT::Error) << "failed to calibrate channel " << i
@@ -145,7 +145,7 @@ bool ati_rtt::configureHook(){
     }
   }
   std::cout << "Board has been calibrated" << std::endl;
-  
+  */
     /*
   int nchan = comedi_get_n_channels( Device, Subdevice );
   for( int j=0; j<nchan; j++ ){
@@ -246,7 +246,7 @@ ati_rtt::Errno ati_rtt::read( Data* data, float ft[6] ){
       
       if( isnan(val) ){
 	const char* string = comedi_strerror( comedi_errno() );
-	std::cout << "ati_rtt::Read: " << string << std::endl;
+	//std::cout << "ati_rtt::Read: " << string << std::endl;
 	return ati_rtt::EFAILURE;
       }
       else{
@@ -263,7 +263,7 @@ ati_rtt::Errno ati_rtt::read( Data* data, float ft[6] ){
     }
     else{
       const char* string = comedi_strerror( comedi_errno() );
-      std::cout << "ati_rtt::Read: " << string << std::endl;
+      //std::cout << "ati_rtt::Read: " << string << std::endl;
       return ati_rtt::EFAILURE;
     }
   }
