@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  
+  <xacro:macro name="ati" params="parent">
+    
+    <!--joint between parent} and ati-->
+    <joint name="${parent}_ati" type="fixed">
+      <origin xyz="0.0 0.0 0.0406" rpy="0 0 0"/>
+      <parent link="${parent}"/>
+      <child link="ati"/>
+    </joint>
+    
+    <link name="ati">
+      <inertial>
+        <origin xyz="0 0.0 0" rpy="0 0 0"/>
+        <mass value="0.255"/>
+        <inertia ixx="0.01"  ixy="0"  ixz="0" iyy="0.01" iyz="0.00" izz="0.01" />
+      </inertial>
+      
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://ati_description/meshes/ati-gamma.dae"/>
+        </geometry>
+      </visual>
+      
+      <collision>
+        <origin xyz="0 0 0.0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://ati_description/meshes/ati-gamma.dae"/>
+        </geometry>
+      </collision>
+      
+    </link>
+    
+  </xacro:macro>
+  
+</robot>
